@@ -1,26 +1,61 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+    <nav>
+      <router-link to="/">Home</router-link>
+      <router-link to="/login">Login</router-link>
+    </nav>
+    <content>
+      <router-view/>
+    </content>
+    <footer>
+      <p> Copyright text things and else </p>
+    </footer>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  name: "App",
+};
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+	padding: 0;
+}
+nav {
+  padding: 30px;
+  background-color: #333;
+	flex-direction: row;
+	justify-content: space-between;
+	display: flex;
+	align-items: center;
+  color: white;
+}
+
+nav a {
+  font-weight: bold;
+	color: white;
+}
+
+nav a.router-link-exact-active {
+  color: #42b983;
+}
+content {
+  flex: 1;
+  padding: 20px;
+}
+
+footer {
+  padding: 30px;
+  background-color: #333;
+	flex-direction: row;
+  color: white;
 }
 </style>
