@@ -1,2 +1,24 @@
-# WAD_Group_Q_Vue
-TÜ Web Application Development homeworks, Group G Vue app (Marleen Rand, Anna-Liisa Jõgi, Kim Lilii Tamm) 
+# wad_group_q_vue
+
+## Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
