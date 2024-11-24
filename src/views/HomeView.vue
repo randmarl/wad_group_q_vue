@@ -64,6 +64,7 @@ export default {
     justify-content: space-around;
     width: 100%;
     height: 100%;
+    margin-bottom: 40px;
 }
 .content {
     background-color: white;
@@ -74,6 +75,7 @@ export default {
     flex: 1;
     background-color: rgb(209, 209, 209);
 }
+
 .reset-button {
   margin: 20px 0;
   padding: 10px 20px;

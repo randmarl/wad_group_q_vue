@@ -1,12 +1,6 @@
 <template>
-    <div class="idk">
-        <nav>
-      <ul class="nav">
-        <li><router-link to="/">Home</router-link></li>
-        <li><router-link to="/login">Login</router-link></li>
-      </ul>
-    </nav>
-    <div class="login-section">
+    <div class="login-page">
+      
       <div class="login-container">
         <h2 class="welcome-message">Create Your Account</h2>
         <form @submit.prevent="validateSignupForm">
@@ -29,8 +23,8 @@
         </form>
       </div>
     </div>
-    </div>
 </template> 
+
 <script>
 export default {
   data() {
@@ -42,10 +36,9 @@ export default {
   },
   methods: {
     validateSignupForm() {
-      this.validationMessage = ""; // Reset the validation message
+      this.validationMessage = "";
       const errors = [];
 
-      // Validation rules
       if (this.password.length < 8 || this.password.length >= 15) {
         errors.push("Password must be at least 8 characters and less than 15 characters long.");
       }
@@ -65,12 +58,11 @@ export default {
         errors.push("Password must include the character '_'.");
       }
 
-      // Set validation message or proceed
       if (errors.length > 0) {
         this.validationMessage = "The password is not valid - " + errors.join(" ");
       } else {
         alert("Account successfully created!");
-        // Redirect or clear the form after success
+
         this.email = "";
         this.password = "";
       }
@@ -80,29 +72,13 @@ export default {
 </script>
 
 <style scoped>
-/* Styles for navigation */
-.nav {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 10px;
-}
 
-.nav li {
-  display: inline-block;
-}
-
-.nav a {
-  text-decoration: none;
-  color: blue;
-}
-
-/* Styles for the form */
-.login-section {
+.login-page {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  margin: 0;
   background-color: #f9f9f9;
 }
 
@@ -121,11 +97,14 @@ export default {
 
 input {
   display: block;
+  width: calc(100% - 40px);
+  margin: 10px auto;
   width: 100%;
   margin-bottom: 10px;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  box-sizing: border-box;
 }
 
 .signup-btn {

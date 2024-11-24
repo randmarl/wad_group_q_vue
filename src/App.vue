@@ -1,14 +1,14 @@
 <template>
   <div id="app">
     <nav>
-      <router-link to="/">Home</router-link>
-      <router-link to="/login">Login</router-link>
+      <router-link to="/" class="nav-button">Home</router-link>
+      <router-link to="/login" class="nav-button">Login</router-link>
     </nav>
     <main>
       <router-view/>
     </main>
     <footer>
-      <p> Copyright text things and else </p>
+      <p>&copy; Marleen Rand, Anna-Liisa Jõgi, Kim Lilii Tamm. PostIt, 2024. All rights reserved.</p>
     </footer>
   </div>
 </template>
@@ -31,24 +31,41 @@ export default {
   margin: 0;
 	padding: 0;
 }
+
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 nav {
   background-color: #333;
 	flex-direction: row;
-	justify-content: space-between;
+	justify-content: space-evenly;
 	display: flex;
 	align-items: center;
   color: white;
+  padding: 10px 0;
+  gap: 10px;
 }
 
-nav a {
-  padding: 20px 15px;
+.nav-button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
   font-weight: bold;
-	color: white;
+  border: 1px solid #007bff;
+  transition: 0.3s;
 }
 
-nav a.router-link-exact-active {
-  color: #42b983;
+.nav-button:hover {
+  background-color: white;
+  color: #007bff;
+  border: 1px solid #007bff;
 }
+
 main {
   flex: 1;
   overflow-y: auto;
@@ -57,7 +74,11 @@ main {
 
 footer {
   background-color: #333;
-	flex-direction: row;
   color: white;
-}
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+ }
 </style>
