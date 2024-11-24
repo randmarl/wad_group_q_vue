@@ -6,6 +6,7 @@
 
 <script>
 import PostObject from "../components/Post.vue";
+import Data from '@/assets/posts.json';
 
 export default {
     name: "HomeView",
@@ -20,9 +21,10 @@ export default {
     methods: {
         async fetchPosts() {
             try {
-                const response = await fetch('https://api.jsonbin.io/v3/b/6724d2b8acd3cb34a8a0a39b');
-                const data = await response.json();
-                this.posts = data.record || data;
+                //const response = await fetch(Data);
+                //const data = await response.json();
+                //this.posts = data.record || data;
+                this.posts = Data.record || Data;
             } catch (error) {
                 console.error("Error fetching posts: ", error);
             }
