@@ -1,5 +1,6 @@
 [
     {
+      "id": 1,
       "author": "John Doe",
       "date": "2024-10-01",
       "content": "Nice bridge!",
@@ -12,6 +13,7 @@
       "collaborator": null
     },
     {
+      "id": 2,
       "author": "Jane Smith",
       "date": "2021-01-02",
       "content": "Look... 👀",
@@ -24,6 +26,7 @@
       "collaborator": "John Doe"
     },
     {
+      "id": 3,
       "author": "Alex Brown",
       "date": "2022-10-02",
       "content": "Blah-blah-blah...",
@@ -36,6 +39,7 @@
       "collaborator": null
     },
     {
+      "id": 4,
       "author": "Chris Green",
       "date": "2023-02-14",
       "content": "Felt cute, might delete later.",
@@ -48,6 +52,7 @@
       "collaborator": null
     },
     {
+      "id": 5,
       "author": "Emily White",
       "date": "2024-06-07",
       "content": "truuuu",
@@ -60,6 +65,7 @@
       "collaborator": "Chris Green"
     },
     {
+      "id": 6,
       "author": "John Doe",
       "date": "2017-05-14",
       "content": "Feeling bored... Going for a run!",
@@ -72,6 +78,7 @@
       "collaborator": null
     },
     {
+      "id": 7,
       "author": "Anna-Liisa Jõgi",
       "date": "2019-11-12",
       "content": "I <3 Estonia!!!",
@@ -84,6 +91,7 @@
       "collaborator": "Marleen Rand"
     },
     {
+      "id": 8,
       "author": "Marleen Rand",
       "date": "2018-07-21",
       "content": "dogs > cats",
@@ -96,6 +104,7 @@
       "collaborator": null
     },
     {
+      "id": 9,
       "author": "Kim Lilii Tamm",
       "date": "2022-03-18",
       "content": "It is so big!",
@@ -108,6 +117,7 @@
       "collaborator": "Marleen Rand"
     },
     {
+      "id": 10,
       "author": "Jane Smith",
       "date": "2020-09-30",
       "content": "Hey! I am looking for a job. I am an accountant.",

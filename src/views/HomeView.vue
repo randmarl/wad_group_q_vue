@@ -1,6 +1,6 @@
 <template>
     <div class="content">
-        <PostObject v-for="post in posts" :key="post.id + '-' + post.likes" :post="post" @reset-likes="resetLikesForAll"/>
+        <PostObject v-for="post in posts" :key="post.id" :post="post" @update-likes="updateLikes"/>
     </div>
     <button class="reset-button" v-on:click="resetLikes"> Reset Likes </button>
 </template>
@@ -40,10 +40,10 @@ export default {
                 post.likes = 0;
             });
         },
-        resetLikesForAll(postId) {
-            const post = this.posts.find((p) => p.id === postId);
+        updateLikes(postId) {
+            const post = this.posts.find(p => p.id === postId);
             if (post) {
-                post.likes = 0;
+                post.likes++;
             }
         }
     },

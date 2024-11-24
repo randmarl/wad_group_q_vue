@@ -13,7 +13,7 @@
         </div>
         <div class="post-footer">
             <button class="like-button" @click="incrementLikes">
-                👍 <span class="like-count">{{ likes }}</span>
+                👍 <span class="like-count">{{ post.likes }}</span>
             </button>
         </div>
     </div>
@@ -32,7 +32,6 @@ export default {
     data() {
         return {
             profileImage: userProgileImage,
-            likes: this.post.likes || 0,
         };
     },
     mounted() {
@@ -42,25 +41,16 @@ export default {
     },
     methods: {
         incrementLikes() {
-            this.likes++;
-            this.$emit('update-likes', { id: this.post.id, likes: this.likes });
+            this.$emit('update-likes', this.post.id);
         },
         resolveImage(imagePath) {
             if (!imagePath || typeof imagePath !== 'string') return '';
             try {
-                return require('@/assets/${imagePath.split('/').pop()}');
+                return require(`@/assets/${imagePath.split('/').pop()}`);
             } catch (error) {
                 console.error('Error loading image: ', error);
                 return '';
             }
-        },
-    },
-    watch: {
-        'post.likes': {
-            handler(newLikes) {
-                this.likes = newLikes;
-            },
-            immediate: true,
         },
     },
 };
