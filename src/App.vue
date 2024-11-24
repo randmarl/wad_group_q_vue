@@ -30,6 +30,7 @@ export default {
 	padding: 0;
 }
 nav {
+  flex: 0 0 60px;
   padding: 30px;
   background-color: #333;
 	flex-direction: row;
@@ -49,10 +50,12 @@ nav a.router-link-exact-active {
 }
 main {
   flex: 1;
+  overflow-y: auto;
   padding: 20px;
 }
 
 footer {
+  flex: 0 0 40px;
   padding: 30px;
   background-color: #333;
 	flex-direction: row;
