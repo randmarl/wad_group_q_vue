@@ -63,7 +63,7 @@ export default {
     flex-direction: row;
     justify-content: space-around;
     width: 100%;
-    height: 75vh;
+    height: 100%;
 }
 .content {
     background-color: white;
