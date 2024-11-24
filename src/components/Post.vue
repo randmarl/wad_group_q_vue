@@ -2,7 +2,7 @@
     <div class="post">
         <div class="post-header">
             <a class="post-logo" href="#">
-                <img src="res/images/pfp.jpg" width="50" height="50" alt="User pfp" />
+                <img :src="profileImage" width="50" height="50" alt="User pfp" />
             </a>
             <p>{{ post.date }}</p>
         </div>
@@ -11,11 +11,13 @@
             <p>{{ post.content }}</p>
         </div>
         <div class="post-footer">
-            <img class="like" src="res/images/like.svg" alt="Like icon" />
+            <p class="like"> 👍 </p>
         </div>
     </div>
 </template>
 <script>
+import userProgileImage from '@/assets/pfp.jpg'
+
 export default {
     name: "PostObject",
     props: {
@@ -24,29 +26,45 @@ export default {
             required: true,
         },
     },
+    data() {
+        return {
+            profileImage: userProgileImage
+        };
+    },
+    mounted() {
+        if (this.post.image) {
+            console.log('Image URL: ', this.post.image);
+        }
+    }
 };
 </script>
 
 <style>
-post-header {
-    flex-direction: row;
+.post {
+    background-color: rgb(209, 209, 209);
     border-radius: 10px;
     margin: 10px;
 }
-post-footer {
+.post-header {
+    flex-direction: row;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    margin: 10px;
+}
+.post-footer {
     justify-content: left;
 }
-post-content {
+.post-content {
     justify-content: center;
     margin: 5px;
 }
-post-photo {
+.post-photo {
     width: 100%;
     border-radius: 5px;
 }
-like {
-    width: 25px;
-    height: 25px;
-    margin: 5px;
+.like {
+    border-radius: 5px;
 }
 </style>

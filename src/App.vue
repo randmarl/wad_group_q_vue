@@ -4,9 +4,9 @@
       <router-link to="/">Home</router-link>
       <router-link to="/login">Login</router-link>
     </nav>
-    <content>
+    <main>
       <router-view/>
-    </content>
+    </main>
     <footer>
       <p> Copyright text things and else </p>
     </footer>
@@ -47,7 +47,7 @@ nav a {
 nav a.router-link-exact-active {
   color: #42b983;
 }
-content {
+main {
   flex: 1;
   padding: 20px;
 }
