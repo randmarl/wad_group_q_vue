@@ -1,8 +1,12 @@
 <template>
-    <div class="content">
-        <PostObject v-for="post in posts" :key="post.id" :post="post" @update-likes="updateLikes"/>
+    <div id="home">
+        <div class="sidepanel"></div>
+        <div class="content">
+            <PostObject v-for="post in posts" :key="post.id" :post="post" @update-likes="updateLikes"/>
+            <button class="reset-button" v-on:click="resetLikes"> Reset Likes </button>
+        </div>
+        <div class="sidepanel"></div>
     </div>
-    <button class="reset-button" v-on:click="resetLikes"> Reset Likes </button>
 </template>
 
 <script>
@@ -54,6 +58,22 @@ export default {
 </script>
 
 <style>
+#home {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    height: 75vh;
+}
+.content {
+    background-color: white;
+	aspect-ratio: 3 / 4;
+	overflow-y: auto;
+}
+.side-panel {
+    flex: 1;
+    background-color: rgb(209, 209, 209);
+}
 .reset-button {
   margin: 20px 0;
   padding: 10px 20px;

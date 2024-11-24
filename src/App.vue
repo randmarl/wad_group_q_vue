@@ -23,15 +23,15 @@ export default {
 #app {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100vh;
+  justify-content: center;
+  align-items: stretch;
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
   margin: 0;
 	padding: 0;
 }
 nav {
-  flex: 0 0 60px;
-  padding: 30px;
   background-color: #333;
 	flex-direction: row;
 	justify-content: space-between;
@@ -41,6 +41,7 @@ nav {
 }
 
 nav a {
+  padding: 20px 15px;
   font-weight: bold;
 	color: white;
 }
@@ -55,8 +56,6 @@ main {
 }
 
 footer {
-  flex: 0 0 40px;
-  padding: 30px;
   background-color: #333;
 	flex-direction: row;
   color: white;
