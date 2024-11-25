@@ -68,7 +68,7 @@ nav {
 
 main {
   flex: 1;
-  overflow-y: auto;
+  overflow-y: hidden;
   padding: 20px;
 }
 
@@ -77,7 +77,6 @@ footer {
   color: white;
   text-align: center;
   padding: 10px 0;
-  position: fixed;
   bottom: 0;
   width: 100%;
  }
