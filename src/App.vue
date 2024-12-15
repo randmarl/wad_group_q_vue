@@ -1,21 +1,22 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/" class="nav-button">Home</router-link>
-      <router-link to="/login" class="nav-button">Login</router-link>
-    </nav>
+    <Header />
     <main>
-      <router-view/>
+      <router-view />
     </main>
-    <footer>
-      <p>&copy; Marleen Rand, Anna-Liisa Jõgi, Kim Lilii Tamm. PostIt, 2024. All rights reserved.</p>
-    </footer>
+    <Footer />
   </div>
 </template>
 
 <script>
+import Header from './components/Header.vue';
+import Footer from './components/Footer.vue';
 export default {
   name: "App",
+  components: {
+    Header,
+    Footer,
+  },
 };
 </script>
 
@@ -23,13 +24,20 @@ export default {
 #app {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100vh; /* Ensures the footer is at the bottom */
   justify-content: center;
   align-items: stretch;
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
-  margin: 0;
-	padding: 0;
+  padding: 0;
+}
+
+main {
+  flex: 1;
+  padding-top: 60px; /* Space for fixed header */
+  padding-bottom: 40px; /* Space for fixed footer */
+  overflow-y: hidden;
+  justify-content: center;
 }
 
 body, html {
@@ -37,48 +45,4 @@ body, html {
   padding: 0;
   box-sizing: border-box;
 }
-
-nav {
-  background-color: #333;
-	flex-direction: row;
-	justify-content: space-evenly;
-	display: flex;
-	align-items: center;
-  color: white;
-  padding: 10px 0;
-  gap: 10px;
-}
-
-.nav-button {
-  background-color: #007bff;
-  color: white;
-  padding: 10px 20px;
-  text-decoration: none;
-  border-radius: 5px;
-  font-weight: bold;
-  border: 1px solid #007bff;
-  transition: 0.3s;
-}
-
-.nav-button:hover {
-  background-color: white;
-  color: #007bff;
-  border: 1px solid #007bff;
-}
-
-main {
-  flex: 1;
-  overflow-y: auto;
-  padding: 20px;
-}
-
-footer {
-  background-color: #333;
-  color: white;
-  text-align: center;
-  padding: 10px 0;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
- }
 </style>

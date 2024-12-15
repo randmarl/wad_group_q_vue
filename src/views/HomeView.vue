@@ -1,79 +1,59 @@
 <template>
     <div id="home">
-        <div class="sidepanel"></div>
-        <div class="content">
-            <PostObject v-for="post in posts" :key="post.id" :post="post" @update-likes="updateLikes"/>
-            <button class="reset-button" v-on:click="resetLikes"> Reset Likes </button>
-        </div>
-        <div class="sidepanel"></div>
+      <div class="sidepanel"></div>
+      <div class="content">
+        <PostObject v-for="post in posts" :key="post.id" :post="post" @update-likes="updateLikes" />
+        <button class="reset-button" v-on:click="resetLikes"> Reset Likes </button>
+      </div>
+      <div class="sidepanel"></div>
     </div>
-</template>
-
-<script>
-import PostObject from "../components/Post.vue";
-import Data from '@/assets/posts.json';
-
-export default {
+  </template>
+  
+  <script>
+  import PostObject from "../components/Post.vue";
+  import { mapState, mapActions } from 'vuex';
+  
+  export default {
     name: "HomeView",
     components: {
-        PostObject,
+      PostObject,
     },
-    data() {
-        return {
-            posts: [],
-        };
+    computed: {
+      ...mapState({
+        posts: state => state.posts, // Get posts from Vuex store
+      }),
     },
     methods: {
-        async fetchPosts() {
-            try {
-                //const response = await fetch(Data);
-                //const data = await response.json();
-                //this.posts = data.record || data;
-                this.posts = (Data.record || Data).map(post => {
-                    return {
-                        ...post,
-                        likes: post.likes || 0,
-                    };
-                });
-            } catch (error) {
-                console.error("Error fetching posts: ", error);
-            }
-        },
-        resetLikes() {
-            this.posts.forEach((post) => {
-                post.likes = 0;
-            });
-        },
-        updateLikes(postId) {
-            const post = this.posts.find(p => p.id === postId);
-            if (post) {
-                post.likes++;
-            }
-        }
+      ...mapActions({
+        resetLikes: 'resetLikes', // Map Vuex resetLikes action
+        updateLikes: 'incrementLikes', // Map Vuex incrementLikes action
+      }),
     },
-    mounted() {
-        this.fetchPosts();
-    },
-};
-</script>
-
+  };
+  </script>
+  
 <style>
-#home {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    width: 100%;
-    height: 100%;
-    margin-bottom: 40px;
+  #home {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* Distribute space between content and side panels */
+  width: 100%;
+  height: 100%;
+  margin-bottom: 40px;
 }
+
 .content {
-    background-color: white;
-	aspect-ratio: 3 / 4;
-	overflow-y: auto;
+  background-color: white;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align posts from the top */
+  overflow-y: auto;
 }
+
 .side-panel {
-    flex: 1;
-    background-color: rgb(209, 209, 209);
+  flex: 1; /* Side panels take up less space */
+  background-color: rgb(209, 209, 209);
 }
 
 .reset-button {
@@ -90,4 +70,6 @@ export default {
 .reset-button:hover {
   background-color: #36a372;
 }
+
 </style>
+  
